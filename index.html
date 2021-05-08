@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <title>Timer</title>
+  <link rel = "icon" href = 
+  "https://i.pinimg.com/originals/7f/9c/f6/7f9cf676c241c5460481de070e821e56.jpg" 
+          type = "image/x-icon">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('https://image.freepik.com/free-photo/high-angle-view-birthday-gift-bunting-blue-background_23-2147917385.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  
+  font-size: 25px;
+}
+.time{
+  color: #3a0ca3;
+ 
+}
+
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #f72585;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+<body>
+
+<div class="bgimg">
+ 
+  <div class="middle">
+    <h1>My Birthday is in...</h1>
+
+    <div class="time">
+    <b><p id="demo" style="font-size:50px"></p></b>
+  </div>
+  </div>
+  
+</div>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("MARCH 5, 2022 15:37:25").getTime();
+
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+  
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+  
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(countdownfunction);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
